@@ -4,3 +4,12 @@
                     f'snscrape twitter-{keyword_user_search_param} "{keyword} since:{since} until:{until} lang:{lang}" > {output_path}')
             except Exception as err:
                 print(f"SNSCRAPE ERROR: {err}")
+
+
+
+import snscrape.modules.twitter.
+
+for tweet in snscrape.modules.twitter.TwitterProfileScraper('username').get_items():
+	# Do something with the tweet object, e.g.
+	print(tweet.url)
+
