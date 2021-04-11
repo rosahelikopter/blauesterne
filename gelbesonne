@@ -1,0 +1,6 @@
+            print(f'scraping tweets with keyword: "{keyword}" ...')
+            try:
+                os.system(
+                    f'snscrape twitter-{keyword_user_search_param} "{keyword} since:{since} until:{until} lang:{lang}" > {output_path}')
+            except Exception as err:
+                print(f"SNSCRAPE ERROR: {err}")
