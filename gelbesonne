@@ -13,3 +13,10 @@ for tweet in snscrape.modules.twitter.TwitterProfileScraper('username').get_item
 	# Do something with the tweet object, e.g.
 	print(tweet.url)
 
+import re
+
+text = "@RayFranco is answering to @jjconti, this is a real '@username83' but this is an@email.com, and this is a @probablyfaketwitterusername";
+
+result = re.findall("(^|[^@\w])@(\w{1,15})", text)
+
+print(result);
