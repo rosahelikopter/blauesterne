@@ -20,3 +20,15 @@ text = "@RayFranco is answering to @jjconti, this is a real '@username83' but th
 result = re.findall("(^|[^@\w])@(\w{1,15})", text)
 
 print(result);
+
+
+import re
+import pandas as pd
+
+trump = pd.read_csv('https://drive.google.com/uc?export=download&id=1xRKHaP-QwACMydlDnyFPEaFdtskJuBa6')
+trump.text = trump.apply(lambda row: re.sub(r"http\S+", "", row.text).lower(), 1)
+trump.text = trump.apply(lambda row: " ".join(filter(lambda x:x[0]!="@", row.text.split())), 1)
+trump.text = trump.apply(lambda row: " ".join(re.sub("[^a-zA-Z]+", " ", row.text).split()), 1)
+trump = trump.loc[(trump.isRetweet == "f") & (trump.text != ""), :]
+timestamps = trump.date.to_list()
+tweets = trump.text.to_list()
