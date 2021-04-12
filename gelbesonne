@@ -21,6 +21,8 @@ result = re.findall("(^|[^@\w])@(\w{1,15})", text)
 
 print(result);
 
+xxxxxxxxxxxxxxxxxxxx
+
 
 import re
 import pandas as pd
@@ -32,3 +34,13 @@ trump.text = trump.apply(lambda row: " ".join(re.sub("[^a-zA-Z]+", " ", row.text
 trump = trump.loc[(trump.isRetweet == "f") & (trump.text != ""), :]
 timestamps = trump.date.to_list()
 tweets = trump.text.to_list()
+
+
+xxxxxxxxxxxxxxxxxxxxxx
+
+
+from transformers import pipeline
+ner = pipeline('ner', model='xlm-roberta-large-finetuned-conll03-german')
+ner('Ich bin Luisa aus Berlin.')
+
+
