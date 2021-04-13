@@ -35,6 +35,10 @@ trump = trump.loc[(trump.isRetweet == "f") & (trump.text != ""), :]
 timestamps = trump.date.to_list()
 tweets = trump.text.to_list()
 
+https://pypi.org/project/keybert/
+
+https://github.com/prachiprakash26/Keyword_Extractor_Python
+
 
 xxxxxxxxxxxxxxxxxxxxxx
 
