@@ -75,9 +75,27 @@ def extract_telegram(url):
     n_online = -1
   return(n_all, n_online)
 
-list_urls = ['https://t.me/querdenken', 'https://t.me/querdenken089']
+list_urls = ['']
 for url in list_urls:
   
   n_all, n_online = extract_telegram(url)
   print(n_all)
   print(n_online)
+  
+  
+###
+
+ !pip install schedule
+import schedule
+import time
+
+def job():
+    print("I'm working...")
+
+    list_urls = [
+schedule.every(30).seconds.do(job)
+
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
