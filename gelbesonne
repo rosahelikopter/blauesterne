@@ -50,3 +50,34 @@ ner = pipeline('ner', model='xlm-roberta-large-finetuned-conll03-german')
 ner('Ich bin Luisa aus Berlin.')
 
 
+
+
+##########
+import requests
+
+from bs4 import BeautifulSoup
+
+def extract_telegram(url):
+  page = requests.get(url)
+  soup = BeautifulSoup(page.content, 'html.parser')
+
+  numbers = soup.find('div', class_='tgme_page_extra').contents[0]
+  
+  if "members" in numbers:
+    n_all = int(numbers.split(",")[0].replace(" members", "").replace(" ", ""))
+    n_online = int(numbers.split(",")[1].replace(" online", "").replace(" ", ""))
+  elif "subscribers" in numbers:
+   n_all = int(numbers.replace(" subscribers", "").replace(" ", ""))
+   n_online = - 1
+
+  else:
+    n_all = -1
+    n_online = -1
+  return(n_all, n_online)
+
+list_urls = ['https://t.me/querdenken', 'https://t.me/querdenken089']
+for url in list_urls:
+  
+  n_all, n_online = extract_telegram(url)
+  print(n_all)
+  print(n_online)
