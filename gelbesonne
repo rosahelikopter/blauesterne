@@ -6,6 +6,8 @@
                 print(f"SNSCRAPE ERROR: {err}")
 
 
+https://www.gdeltproject.org/
+
 
 import snscrape.modules.twitter.
 
