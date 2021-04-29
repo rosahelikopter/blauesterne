@@ -107,6 +107,8 @@ list_expressions = "gut|ich" df[df.texte.str.contains(list_expressions, regex=Tr
 
 https://maxbundscherer.github.io/telegram-analysis/
 
+https://cemas.io/
+
 
 https://towardsdatascience.com/building-a-social-network-from-the-news-using-graph-theory-by-marcell-ferencz-9155d314e77f
 
